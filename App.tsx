@@ -57,7 +57,8 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       
       <div className="flex-grow">
-        <div className="max-w-5xl mx-auto pb-16">
+        {/* Added extra padding-bottom (pb-80) to prevent Footer's floating box from covering pagination */}
+        <div className="max-w-5xl mx-auto pb-80">
           
           <Header />
           
@@ -85,9 +86,9 @@ const App: React.FC = () => {
               
               <RecipientList data={currentPaginatedData} />
 
-              {/* Modern Pagination */}
+              {/* Modern Pagination - Added z-index and relative positioning */}
               {totalPages > 1 && (
-                <div className="mt-12 flex justify-center items-center gap-6">
+                <div className="mt-12 flex justify-center items-center gap-6 relative z-20">
                   <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
